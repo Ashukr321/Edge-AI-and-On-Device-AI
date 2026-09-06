@@ -1,0 +1,3 @@
+# llama.cpp — Overview
+
+llama.cpp (by Georg Gerganov, `ggml-org/llama.cpp`) started in early 2023 as a minimal C/C++ port to run Meta's LLaMA model on a MacBook CPU. It has since grown into the de facto reference inference engine for open-weight LLMs: it defines the GGUF file format, supports dozens of model architectures beyond LLaMA (Mistral, Qwen, Gemma, Phi, and more), and underpins most consumer local-LLM tools (Ollama, LM Studio, GPT4All all build on it or a fork of it). Its core design goal is to run efficiently everywhere — from a Raspberry Pi to a multi-GPU workstation — with minimal dependencies.

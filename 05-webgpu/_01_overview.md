@@ -1,0 +1,3 @@
+# WebGPU for Machine Learning — Overview
+
+WebGPU is the modern, low-level graphics-and-compute API for the web, designed as the successor to WebGL. It exposes GPU capabilities much closer to native APIs like Vulkan, Metal, and Direct3D 12: explicit resource management, pipeline objects, and — critically for ML — first-class **compute shaders** with general-purpose buffer/storage access, not just the fragment/vertex-shader tricks WebGL required for GPGPU work. This makes WebGPU the natural backend for running neural-network inference (and even light training) in the browser with performance much closer to native GPU code.

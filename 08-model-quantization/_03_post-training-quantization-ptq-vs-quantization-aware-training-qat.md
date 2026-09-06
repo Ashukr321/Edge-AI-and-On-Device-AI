@@ -1,0 +1,6 @@
+# Model Quantization — Post-training quantization (PTQ) vs. quantization-aware training (QAT)
+
+- **PTQ** quantizes an already-trained float model with no (or minimal) retraining. It's fast and requires no training pipeline access, but accuracy loss can be significant for sensitive models, especially at INT4 and below.
+  - *Dynamic* PTQ: weights are quantized ahead of time; activations are quantized on-the-fly at inference based on their observed runtime range. Simple, no calibration dataset needed, but activation quantize/dequantize adds runtime overhead — most beneficial for memory-bandwidth-bound ops like LSTM/Linear layers.
+  - *Static* PTQ: both weights and activations are quantized ahead of time, using a calibration dataset to fix activation ranges. Faster at inference (no runtime quantize step) but requires representative calibration data and typically fake-quantization "observer" passes before deployment.
+- **QAT** simulates quantization effects (fake quantization: quantize-then-dequantize) during training or fine-tuning, so the model's weights adapt to tolerate the precision loss via backpropagation (using a straight-through estimator to route gradients through the non-differentiable round operation). QAT recovers most of the accuracy PTQ loses, at the cost of needing the original training pipeline, data, and additional compute time.

@@ -1,0 +1,3 @@
+# Browser AI: Running Machine Learning Client-Side — WebNN (Web Neural Network API)
+
+WebNN is a W3C API (Web Machine Learning Working Group) that lets JS describe a neural-network graph (conv2d, matmul, relu, etc.) and hands execution to the OS's native ML stack — DirectML on Windows, Core ML on macOS/iOS, NNAPI/XNNPACK on Android/Linux — instead of routing through WebGL/WebGPU shaders. This lets the browser tap dedicated NPUs (Neural Processing Units), not just the GPU. It's implemented behind flags/origin trials in Chrome/Edge as of 2024–2025 and is the API ONNX Runtime Web and TensorFlow.js are adding as an additional execution provider/backend, alongside WASM and WebGPU.

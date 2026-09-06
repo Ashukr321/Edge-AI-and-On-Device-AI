@@ -1,0 +1,5 @@
+# Model Compression — Key concepts
+
+- **Redundancy in over-parameterized networks.** Large networks are typically over-parameterized relative to the task; a substantial fraction of weights contribute little to the output, which is what makes pruning and distillation possible without proportional accuracy loss.
+- **Structured vs. unstructured sparsity.** Unstructured pruning removes individual weights (fine-grained, high compression ratio, but needs sparse-matrix kernels to realize a speedup on most hardware). Structured pruning removes whole structural units (channels, filters, attention heads, layers), which shrinks the dense computation graph directly and speeds up inference on ordinary hardware without special sparse kernels.
+- **Compression as a pipeline, not a single step.** Production edge deployments typically chain: architecture selection → pruning → (optional) distillation to recover accuracy → quantization → hardware-specific compilation. Each stage compounds the benefit of the others.

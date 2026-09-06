@@ -1,0 +1,3 @@
+# TensorFlow Lite / LiteRT — Relationship to TensorFlow Lite for Microcontrollers
+
+TFLM is a separate C++ runtime (not just a smaller TFLite build) meant for devices with no dynamic memory allocation, no OS, and RAM measured in kilobytes. It shares the `.tflite` FlatBuffer format and a subset of the same op kernels, but the interpreter, memory planning (static arena allocation), and build system are distinct from mobile TFLite. Models must be converted with a microcontroller target in mind (int8 quantized, a constrained op subset) and are typically compiled into a firmware image rather than loaded as a separate file at runtime.

@@ -1,0 +1,3 @@
+# Model Compression — Overview
+
+Model compression covers techniques that reduce a neural network's size and compute cost by changing its structure or parameters — as distinct from quantization (`08-model-quantization`), which reduces numeric precision but keeps the same architecture and parameter count. The main families are pruning (removing weights or structures), knowledge distillation (training a smaller model to mimic a larger one), low-rank factorization (approximating weight matrices with smaller factors), weight sharing/clustering, and efficient architecture design via neural architecture search. In practice these are combined into a single pipeline together with quantization for maximum size/speed reduction.
